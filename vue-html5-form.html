@@ -1,0 +1,369 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ch2</title>
+<style>
+*{
+	box-sizing:border-box;
+}
+html, body, form, fieldset, legend, h1, ul,li{
+	padding:0;
+	margin:0;
+	/*box-sizing:border-box;注意加和不加的区别*/
+}
+ul,li{
+	list-style:none;
+}
+body{
+	background-color:#eeeeee; 
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+}
+#container{
+	background-color:#dcd4ce;
+	margin:30px auto;
+	width:800px;
+	border:1px solid #423021;
+	vertical-align: baseline;
+	box-shadow:2px 2px 10px 0;
+	font-size:0.8em;
+}
+#container h1{
+	font-weight:600;
+	font-size:2em;
+	padding:5px 15px;
+	border-bottom: 1px solid #423021;
+	text-shadow:1px 1px 0px #fff;
+	background-color:#beb0a3;
+}
+
+fieldset{
+	margin:20px 20px;
+	border:none;/*or 0*/
+    border-bottom: 1px dashed #BEB0A3;
+    padding-bottom:20px;
+    overflow:hidden;
+    width:760px;
+
+}
+legend{
+	font-size:1.5em;
+	font-weight:bold;
+	text-shadow:1px 1px 0 #fff;
+	padding-bottom:10px;
+
+}
+fieldset ul li{
+	width:380px;
+	float:left;
+	margin-bottom:7px;
+}
+label div{
+	float:left;
+	width:130px;
+	padding-top:5px;
+}
+label input,label select,label ul{
+	float:left;
+	width:230px;
+}
+
+.detailAdd{
+	width:230px;
+	float:left;
+	padding-top:0;
+}
+.city{
+	width:86px;
+	float:left;
+}
+.state{
+	width:40px;
+	float:left;
+	margin-left:4px;
+}
+.zip{
+	width:94px;
+	float:right;
+}
+
+.cvv{
+	width:64px;
+}
+.cvvspan{
+	float:left;
+	font-size:0.6em;
+	margin-top:5px;
+	padding-left:1px;
+}
+
+table{
+	width:100%;
+	border:1px solid #705536;
+	border-collapse:collapse;
+	font-size:1.2em;
+}
+.col1,.col4,.col5{
+	width:20%;
+}
+.col2{
+	width:30%;
+}
+.col3{
+	width:10%;
+}
+table input{
+	width:80px;
+	height:38px;
+	padding:2px 10px;
+	text-align:center;
+	font-size:1.2em;
+}
+th,td{
+	border:1px solid #705536;
+	text-align:left;
+	padding-left:10px;
+}
+th{
+	background-color:#614023;
+	color:white;
+	height:28px;
+}
+td{
+	background-color:#e5dad2;
+	height:44px;
+}
+.odd td{
+	background-color:#fff3e9;
+}
+.total{
+	font-size:1.2em;
+	font-weight:bold;
+	text-shadow:2px 2px 1px #fff;
+}
+.odertotal{
+	text-align:right;
+	padding-right:28px;
+}
+
+.submitdata{
+	text-align:right;
+	margin-bottom:10px;
+	margin-right:10px;
+
+}
+.submitdata input{
+	padding:6px 10px;
+	border-radius:5px;
+	border:1px solid #423021;
+	background-color:#86643f;
+	font-weight:bold;
+	color:#fff;
+	text-shadow:1px 1px 0 #000;
+	margin:5px;
+}
+
+.required{
+	background-color:#ffffe0;
+}
+/*当invalid事件发生时 验证失败的表单被列为:invalid伪类里 */
+.invalid input:invalid{
+	background-color:#ffd4d4;
+}
+</style>
+
+</head>
+<script></script>
+
+<body>
+	<form class='container' name='order' action='/submit' id='container'>
+		<h1>Order Form</h1>
+		<fieldset>
+			<legend>Contact Details</legend>
+			<ul>
+				<!-- username -->
+				<li>
+					<label>
+						<div for='username'>Full Name</div><input type="text" autofocus id='setfocus' class='required' required>
+					</label>
+				</li>	
+				<!-- email -->
+				<li>
+					<label>
+						<div>Email Address</div><input type="email" class='required' required>
+					</label>
+				</li>
+				<!-- address -->
+				<li>
+					<label>
+						<div>Postal Address</div>
+						<input type="text" name="" placeholder='Address Line 1'>
+					</label>
+				</li>
+				
+				<!-- homephone -->
+				<li>
+					<label>
+						<div>Home Phone No.</div><input type="tel">
+					</label>
+				</li>
+				<!-- address22 -->
+				<li>
+					<label>
+						<div>&nbsp;</div>
+						<input type="text" name="" placeholder='Address Line 2'>
+					</label>
+				</li>
+				<!-- cellphone -->
+				<li>
+					<label>
+						<div>Cell Phone No.</div><input type="tel">
+					</label>
+				</li>
+				<!-- address33 -->
+				<li>
+					<label>
+						<div>&nbsp;</div>
+						<div class='detailAdd'>
+							<input type="text" name="" class='city' placeholder='Town/City'>
+							<input type="text" name="" class='state' placeholder='State'>
+							<input type="text" name="" class='zip' placeholder='Zip Code'>
+						</div>
+					</label>
+				</li>
+				<!-- skype -->
+				<li>
+					<label>
+						<div>Skype Name</div><input type="text">
+					</label>
+				</li>
+				
+				<!-- address44 -->
+				<li>
+					<label>
+						<div>&nbsp;</div>
+						<select>
+							<option>country</option>
+							<option>China</option>
+							<option>USA</option>
+						</select>
+
+					</label>
+				</li>
+				<!-- twitter -->
+				<li>
+					<label>
+						<div>Twitter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@</div><input type="text">
+					</label>
+				</li>
+			</ul>
+		</fieldset>	
+
+		<!-- Login Details -->
+		<fieldset>
+			<legend>Login Details</legend>
+			<ul>
+				<li>
+					<label><div>Password</div><input type="password" name="password" class='required' required></label>
+				</li>
+				<li>
+					<label><div>Confirm Password</div><input type="password" name="confirmpassword" @input='confirmpassword($event)' class='required' required></label>
+				</li>
+			</ul>
+		</fieldset>
+
+		<!-- Order Details -->
+		<fieldset>
+			<legend>Order Details</legend>
+			<table>
+				<thead>
+					<tr>
+						<th class='col1'>Product Code</th>
+						<th class='col2'>Description</th>
+						<th class='col3'>Qty</th>
+						<th class='col4'>Price</th>
+						<th class='col5'>Total</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>COMP001</td>
+						<td>The Ultimate Smartphone</td>
+						<td><input type="number" name="" v-model='qty.Smartphone' min='0' max='99' maxlength='2' data-price='399.99' autocomplete="off" @keyup='warnAmount($event)'></td>
+						<td>
+							<output>$399.99</output>
+						</td>
+						<td><!-- $0.00 -->${{totalSmartphone | fixTwo}}</td>
+					</tr>
+					<tr class='odd'>
+						<td>COMP002</td>
+						<td>The Ultimate Tablet</td>
+						<td><input type="number" name="" v-model='qty.Tablet' min='0' max='99' maxlength='2' data-price='499.99' autocomplete="off" @keyup='warnAmount($event)'></td>
+						<td>
+							<output>$499.99</output>
+						</td>
+						<td><!-- $0.00 -->${{totalTablet | fixTwo}}</td>
+					</tr>
+					<tr>
+						<td>COMP003</td>
+						<td>The Ultimate Netbook</td>
+						<td><input type="number" name="" v-model='qty.Netbook' min='0' max='99' maxlength='2' data-price='299.99' autocomplete="off" @keyup='warnAmount($event)'></td>
+						<td>
+							<output>$299.99</output>
+						</td>
+						<td><!-- $0.00 -->${{totalNetbook | fixTwo}}</td>
+					</tr>	
+					<tr class='total'>
+						<td colspan='4' class='odertotal'>Order Total</td>
+						<td>${{totalAll | fixTwo}}</td
+>					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+		<!-- Payment Details -->
+		<fieldset>
+			<legend>Payment Details</legend>
+			<ul>
+				<li>
+					<label>
+						<div>Name on Card</div><input type="text">
+					</label>
+				</li>
+				<li>
+					<label>
+						<div>Credit Card No.</div><input type="text"  pattern='[0-9]{13,16}' maxlength='16'  title='13-16 digits code '> <!-- pattern规定了输入内容的格式，[0-9]表示值的范围是0-9的数字，{13,16}表示13-16位数 注意是逗号 -->
+					</label>
+				</li>
+				<li>
+					<label>
+						<div>Expiry Date</div><input type="month" value="2017-05" placeholder='YYYY-MM' >
+					</label>
+				</li>
+				<li>
+					<label>
+						<div>CVV2 No.</div>
+						<input type="text" name="" class='cvv' pattern='[0-9]{3}' maxlength='3'  placeholder='' title='exactly 3 digits'>
+						<span class='cvvspan'>(Three digit code at back of card)</span>
+					</label>
+				</li>
+			</ul>
+		</fieldset>
+		<!-- submit -->
+		<div class='submitdata'>
+			<input type="submit" name="" value='Submit Order' @click='checkPassword' @invalid='invalid'>
+			<input type="submit" name="" value='Save Order' formnovalidate formaction='./save.txt' id='saveOrder' @click='saveOrderSub'>
+		</div>
+
+	</form>
+
+</body>
+
+</html>
+<script src="./vue2.0.js"></script>
+<script src="./ownapp.js"></script>
+
+<!-- 此项目学到的：
+1 input输入框关闭自动填充
+autocomplete="off"
+ -->
